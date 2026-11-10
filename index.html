@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction d’immeubles au Maroc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>
+:root{--ink:#0f2f2e;--text:#3f5654;--muted:#6a807d;--soft:#f4faf8;--paper:#fff;--line:#dcebe7;--brand:#0a7f76;--brand-d:#075f59;--dark:#0d2b2a;--glass:rgba(255,255,255,.75);--grad:linear-gradient(135deg,#0a7f76,#2cc3b0);--shadow:0 24px 60px rgba(15,47,46,.12);
+--font:"Plus Jakarta Sans","Cairo","Segoe UI",Arial,sans-serif}
+:root[data-theme="dark"]{--ink:#eaf7f5;--text:#b4cdc9;--muted:#85a29d;--soft:#0b1a19;--paper:#112625;--line:#1f3b39;--brand:#4fd1c0;--brand-d:#7fe3d6;--dark:#071211;--glass:rgba(17,38,37,.72);--shadow:0 24px 60px rgba(0,0,0,.45)}
+[lang="ar"]{--font:"Cairo","Segoe UI",Tahoma,Arial,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--soft);line-height:1.7;font-size:17px;transition:background .3s,color .3s}
+h1,h2,h3{color:var(--ink);line-height:1.12;font-weight:800}
+html:not([lang="ar"]) h1,html:not([lang="ar"]) h2{letter-spacing:-.025em}
+html:not([lang="ar"]) h1,html:not([lang="ar"]) h2{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:700}
+h2{font-size:clamp(2rem,4.5vw,3.3rem);margin-bottom:14px}
+h3{font-size:1.2rem;margin-bottom:6px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:24px}
+section{padding:110px 0}
+.lead{max-width:58ch;color:var(--muted);font-size:1.08rem;margin-bottom:48px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.progress{position:fixed;top:0;inset-inline:0;height:3px;z-index:60;background:var(--grad);transform-origin:0 50%;transform:scaleX(0)}
+html[dir="rtl"] .progress{transform-origin:100% 50%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#0a7f76;color:#fff;font:700 1rem var(--font);padding:14px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 10px 24px rgba(10,127,118,.35);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{background:#075f59;transform:translateY(-2px);box-shadow:0 14px 30px rgba(10,127,118,.45)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.btn.ghost:hover{background:var(--paper);border-color:var(--brand)}
+
+header{position:sticky;top:12px;z-index:40;padding:0 16px;margin-top:12px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1160px;margin-inline:auto;padding:10px 12px 10px 22px;padding-inline:22px 12px;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:999px;transition:box-shadow .3s}
+header.sc .bar{box-shadow:var(--shadow)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.logo svg{width:28px;height:28px;color:var(--brand)}
+nav{display:flex;gap:6px;align-items:center}
+nav a{text-decoration:none;font-weight:600;color:var(--text);padding:8px 14px;border-radius:999px;font-size:.95rem}
+nav a:hover,nav a[aria-current]{background:var(--soft);color:var(--brand)}
+.tools{display:flex;gap:8px;align-items:center}
+.lang{display:flex;background:var(--soft);border-radius:999px;padding:3px}
+.lang button{font:700 .85rem var(--font);background:none;border:0;padding:7px 12px;cursor:pointer;color:var(--muted);border-radius:999px}
+.lang button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 6px rgba(0,0,0,.12)}
+.theme{width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.theme svg{width:20px;height:20px}
+@media(max-width:980px){nav{display:none}}
+
+.hero,.pagehero{position:relative;overflow:hidden;background:var(--soft)}
+.hero{padding:110px 0 210px;margin-top:-76px;padding-top:190px}
+.pagehero{padding:170px 0 80px;margin-top:-76px}
+.hero::before,.pagehero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 5%,transparent 70%);mask-image:radial-gradient(ellipse at 30% 30%,#000 5%,transparent 70%);opacity:.8}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none}
+.b1{width:440px;height:440px;background:#9fe8da;top:-60px;inset-inline-start:-100px}
+.b2{width:380px;height:380px;background:#ffcf9f;bottom:0;inset-inline-end:6%}
+:root[data-theme="dark"] .blob{opacity:.28}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1,.pagehero h1{font-size:clamp(2.6rem,6.2vw,4.9rem);margin-bottom:22px;color:var(--ink);background:linear-gradient(120deg,var(--ink) 35%,var(--brand) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;max-width:15ch}
+.hero p,.pagehero p{max-width:52ch;font-size:1.18rem;margin-bottom:34px;color:var(--text)}
+.pagehero .wrap{position:relative;z-index:1}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.sky{position:absolute;inset-inline:0;bottom:0;width:100%;height:170px;opacity:.9}
+:root[data-theme="dark"] .sky{opacity:.12}
+
+.slider{position:relative;aspect-ratio:16/10;border-radius:28px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 80px rgba(10,127,118,.25)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+.slide svg,.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{position:absolute;inset-inline:0;bottom:0;padding:60px 22px 42px;color:#fff;font-weight:700;font-size:1.15rem;background:linear-gradient(transparent,rgba(13,43,42,.85))}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#0f2f2e;display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.nav svg{width:20px;height:20px}
+.prev{inset-inline-start:14px}.next{inset-inline-end:14px}
+.next svg{transform:scaleX(-1)}
+html[dir="rtl"] .prev svg{transform:scaleX(-1)}
+html[dir="rtl"] .next svg{transform:none}
+.dots{position:absolute;bottom:16px;inset-inline:0;display:flex;justify-content:center;gap:8px}
+.dots button{width:10px;height:10px;border-radius:5px;border:0;padding:0;background:rgba(255,255,255,.6);cursor:pointer;transition:width .25s}
+.dots button[aria-current="true"]{width:28px;background:#fff}
+:root[data-theme="dark"] .slide svg,:root[data-theme="dark"] .thumb svg,:root[data-theme="dark"] .photo svg{filter:brightness(.8)}
+
+.stats{padding:0;position:relative;z-index:2;margin-top:-84px}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;padding:12px;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);max-width:1112px}
+.stats .wrap>div{padding:20px 24px;border-inline-start:1px solid var(--line)}
+.stats .wrap>div:first-child{border-inline-start:0}
+.stats b{display:block;font-size:1.25rem;font-weight:800;color:var(--ink);line-height:1.25}
+.stats span{color:var(--muted);font-size:.93rem}
+section.stats~section:first-of-type{padding-top:90px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+#services .grid{grid-template-columns:repeat(6,1fr)}
+#services .card{grid-column:span 2}
+#services .card:nth-child(1),#services .card:nth-child(4){grid-column:span 4}
+#services .card:nth-child(1) .thumb,#services .card:nth-child(4) .thumb{aspect-ratio:21/9}
+@media(max-width:860px){#services .grid{grid-template-columns:1fr}#services .card,#services .card:nth-child(n){grid-column:auto}#services .card .thumb{aspect-ratio:16/9!important}}
+.card{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:22px 22px 26px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(10,127,118,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--brand)}
+.card:hover::before{opacity:1}
+.card:focus-within{outline:3px solid var(--brand);outline-offset:3px}
+.card p{color:var(--muted);font-size:.98rem}
+.thumb{aspect-ratio:16/9;overflow:hidden;border-radius:18px;margin:0 0 18px;background:var(--soft)}
+.thumb svg,.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.card:hover .thumb svg,.card:hover .thumb img{transform:scale(1.05)}
+.more{background:none;border:0;padding:0;margin-top:14px;font:700 .95rem var(--font);color:var(--brand);cursor:pointer}
+.more::after{content:"";position:absolute;inset:0}
+.more:focus-visible{outline:none}
+
+.photo{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/3;background:var(--paper);margin:0;border:1px solid var(--line)}
+.photo svg,.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.photo:hover svg,.photo:hover img{transform:scale(1.06)}
+.photo figcaption{position:absolute;inset-inline:0;bottom:0;padding:56px 20px 18px;color:#fff;font-weight:700;background:linear-gradient(transparent,rgba(13,43,42,.88))}
+.photo small{display:block;font-weight:400;opacity:.85}
+
+.why{background:var(--paper);border-block:1px solid var(--line)}
+.why ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.why li{padding:26px;border:1px solid var(--line);border-radius:22px;background:var(--soft)}
+.why p{color:var(--muted);font-size:.98rem}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s}
+.steps li{counter-increment:s;padding:26px;border:1px solid var(--line);border-radius:22px;background:var(--soft)}
+.steps li::before{content:"0" counter(s);display:block;font:800 2.6rem var(--font);background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;line-height:1}
+.steps p{color:var(--muted);font-size:.98rem}
+
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+@media(max-width:800px){.split{grid-template-columns:1fr;gap:32px}}
+.split p{margin-bottom:14px}
+.av{width:72px;height:72px;border-radius:50%;background:var(--soft);display:grid;place-items:center;margin-bottom:14px;color:var(--brand)}
+.av svg{width:38px;height:38px}
+.cta{background:linear-gradient(135deg,#075f59,#0a7f76 60%,#2cc3b0);color:#fff;text-align:center;padding:90px 0}
+.cta h2{color:#fff}
+.cta .btn{background:#fff;color:#0f2f2e;box-shadow:none;margin-top:14px}
+.cta .btn:hover{background:var(--soft)}
+
+.contact{background:radial-gradient(900px 420px at 85% 0%,rgba(44,195,176,.28),transparent 70%),radial-gradient(700px 380px at 0% 100%,rgba(244,162,89,.18),transparent 70%),var(--soft);color:var(--text);border-top:1px solid var(--line)}
+.contact h2{color:var(--ink)}
+.contact a{color:var(--brand);font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
+@media(max-width:860px){.cols{grid-template-columns:1fr;gap:32px}}
+.info{display:grid;gap:12px;margin-top:22px}
+form{background:var(--paper);color:var(--text);border-radius:28px;padding:30px;display:grid;gap:16px;box-shadow:var(--shadow)}
+label{display:grid;gap:6px;font-weight:700;color:var(--ink);font-size:.93rem}
+input,select,textarea{font:400 1rem var(--font);padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px rgba(10,127,118,.2)}
+textarea{min-height:110px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+.status{min-height:1.5em;font-weight:700;color:var(--brand)}
+.wa{position:fixed;inset-block-end:20px;inset-inline-end:20px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.3);transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:32px;height:32px}
+.wa-btn{background:#128c7e;box-shadow:none;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.wa-btn:hover{background:#0e7066;box-shadow:none}
+.wa-btn svg{width:22px;height:22px}
+footer{padding:34px 0;font-size:.92rem;color:var(--muted);background:var(--soft)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.legal{flex-basis:100%;font-size:.85rem}
+
+dialog{border:1px solid var(--line);border-radius:28px;padding:30px;width:calc(100% - 32px);max-width:580px;background:var(--paper);color:var(--text);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(13,43,42,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+dialog .head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+dialog .head h2{font-size:1.7rem;margin:0}
+dialog .close{background:var(--soft);border:0;width:38px;height:38px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--ink)}
+dialog ul{list-style:none;padding:0;margin:18px 0 24px;display:grid;gap:10px}
+dialog li{padding-inline-start:28px;position:relative}
+dialog li::before{content:"";position:absolute;inset-inline-start:0;top:.5em;width:12px;height:12px;background:var(--grad);border-radius:50%}
+
+.hero-bg{position:absolute;inset:0;background:url("images/hero-bg.jpg") center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--soft-rgb),.96) 0%,rgba(var(--soft-rgb),.82) 45%,rgba(var(--soft-rgb),.3) 100%)}
+html[dir="rtl"] .hero-ov{transform:scaleX(-1)}
+@media(max-width:900px){.hero-ov{background:rgba(var(--soft-rgb),.86)}}
+:root{--soft-rgb:244,250,248}
+:root[data-theme="dark"]{--soft-rgb:11,26,25}
+.hero h1{white-space:pre-line;font-size:clamp(2.4rem,5.4vw,4.2rem);max-width:20ch}
+.thumb{position:relative}
+body.slots [data-slot]{outline:3px dashed #ff3b3b;outline-offset:-3px}
+body.slots [data-slot]::after{content:attr(data-slot);position:absolute;top:8px;inset-inline-start:8px;z-index:5;background:#ff3b3b;color:#fff;font:700 12px/1.3 monospace;padding:4px 8px;border-radius:6px;white-space:nowrap;direction:ltr}
+.js .rv{opacity:0;translate:0 26px;transition:opacity .8s ease,translate .8s ease}
+.js .rv.in{opacity:1;translate:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;translate:none;transition:none}.slide{transition:none}html{scroll-behavior:auto}}
+.burger{display:none;width:38px;height:38px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);place-items:center;cursor:pointer}
+.burger svg{width:20px;height:20px}
+@media(max-width:980px){
+  .burger{display:grid}
+  header.open nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:calc(100% + 8px);inset-inline:16px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:var(--shadow)}
+}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.slide img+svg,.thumb img+svg,.photo img+svg{display:none}
+</style>
+<script>document.documentElement.className+=" js"</script>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Shared window pattern used by the illustrations -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><defs>
+  <pattern id="win" width="16" height="22" patternUnits="userSpaceOnUse"><rect x="4" y="5" width="8" height="11" fill="#fff" opacity=".75"/></pattern>
+</defs></svg>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 21V9l6-3v15zM11 21V3l10 4v14z"/></svg>
+      <span data-t="brand"></span>
+    </a>
+    <nav id="nav" aria-label="Main">
+      <a href="#services" data-t="n_services"></a>
+      <a href="#projects" data-t="n_projects"></a>
+      <a href="#why" data-t="n_why"></a>
+      <!-- <a href="about.html" data-t="n_about"></a> -->
+      <a href="#contact" data-t="n_contact"></a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="fr" aria-pressed="true">FR</button>
+        <button data-lang="ar" aria-pressed="false">العربية</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme" id="theme" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18z"/><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="sr" data-t="theme"></span></button>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="sr" data-t="m_menu"></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <!-- ===== IMAGE 1: HERO BACKGROUND (first page) =====
+         Put your photo at: images/hero-bg.jpg  (landscape, 1920x1080 or larger, under 400 KB)
+         To use another file name, change url("images/hero-bg.jpg") in the CSS rule .hero-bg -->
+    <div class="hero-bg" data-slot="images/hero-bg.jpg · 1920×1080"><img src="images/hero-bg.png" alt="" onerror="this.remove()"></div><div class="hero-ov"></div>
+    <div class="blob b1"></div><div class="blob b2"></div>
+    <div class="wrap">
+      <div>
+      <h1 data-t="h1"></h1>
+      <p data-t="hero_p"></p>
+      <div class="actions">
+        <a class="btn" href="#contact" data-t="cta1"></a>
+        <a class="btn ghost" href="#projects" data-t="cta2"></a>
+      </div>
+      </div>
+      <!-- ===== IMAGES 2-4: HERO SLIDER =====
+           Put your photos at: images/slide-1.jpg, images/slide-2.jpg, images/slide-3.jpg  (1600x1000, under 300 KB each)
+           They replace the drawings automatically. For more than 3 photos, use the SLIDES variable in the script -->
+      <div class="slider" id="slider" role="region" aria-roledescription="carousel" aria-label="Photos">
+        <div class="slide on" data-slot="images/slide-1.jpg · 1600×1000"><img src="images/slide-1.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#e1f4f0"/><rect x="60" y="100" width="170" height="150" fill="#2a9d8f"/><rect x="60" y="100" width="170" height="150" fill="url(#win)"/><rect x="240" y="150" width="100" height="100" fill="#2a9d8f"/><rect x="240" y="150" width="100" height="100" fill="url(#win)"/><rect x="300" y="30" width="10" height="220" fill="#f4a259"/><rect x="170" y="30" width="200" height="10" fill="#f4a259"/><path d="M195 40v52" stroke="#2a9d8f" stroke-width="2"/><rect x="187" y="92" width="16" height="12" fill="#0b6b65"/></svg><div class="cap" data-t="sv2"></div></div>
+        <div class="slide" data-slot="images/slide-2.jpg · 1600×1000"><img src="images/slide-2.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#ebf8f5"/><rect x="80" y="70" width="120" height="180" fill="#2a9d8f"/><rect x="80" y="70" width="120" height="180" fill="url(#win)"/><rect x="210" y="120" width="90" height="130" fill="#2a9d8f"/><rect x="210" y="120" width="90" height="130" fill="url(#win)"/><rect x="334" y="130" width="6" height="120" fill="#9cc7c0"/><rect x="300" y="108" width="80" height="48" rx="5" fill="#0b6b65"/><rect x="311" y="121" width="58" height="5" fill="#fff" opacity=".85"/><rect x="311" y="133" width="38" height="5" fill="#fff" opacity=".85"/></svg><div class="cap" data-t="sv1"></div></div>
+        <div class="slide" data-slot="images/slide-3.jpg · 1600×1000"><img src="images/slide-3.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="250" fill="#d6efe9"/><rect x="110" y="30" width="180" height="220" fill="#2a9d8f"/><rect x="110" y="30" width="180" height="220" fill="url(#win)"/><path d="M100 30v220M200 30v220M300 30v220M100 90h200M100 150h200M100 210h200" stroke="#f4a259" stroke-width="3" fill="none"/></svg><div class="cap" data-t="sv3"></div></div>
+        <button class="nav prev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="sr" data-t="sl_prev"></span></button>
+        <button class="nav next" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="sr" data-t="sl_next"></span></button>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+    <svg class="sky" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <g fill="#cdeee8"><rect x="40" y="70" width="120" height="110"/><rect x="190" y="20" width="100" height="160"/><rect x="320" y="90" width="140" height="90"/><rect x="490" y="40" width="110" height="140"/><rect x="630" y="100" width="130" height="80"/><rect x="790" y="10" width="100" height="170"/><rect x="920" y="60" width="120" height="120"/><rect x="1060" y="85" width="110" height="95"/></g>
+      <g fill="url(#win)"><rect x="40" y="70" width="120" height="110"/><rect x="190" y="20" width="100" height="160"/><rect x="320" y="90" width="140" height="90"/><rect x="490" y="40" width="110" height="140"/><rect x="630" y="100" width="130" height="80"/><rect x="790" y="10" width="100" height="170"/><rect x="920" y="60" width="120" height="120"/><rect x="1060" y="85" width="110" height="95"/></g>
+    </svg>
+  </section>
+
+  <section class="stats" aria-label="Highlights">
+    <div class="wrap">
+      <div><b data-t="c1"></b><span data-t="c1d"></span></div>
+      <div><b data-t="c2"></b><span data-t="c2d"></span></div>
+      <div><b data-t="c3"></b><span data-t="c3d"></span></div>
+      <div><b data-t="c4"></b><span data-t="c4d"></span></div>
+    </div>
+    <!-- Keep only the commitments you can honor -->
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 data-t="n_services"></h2>
+      <p class="lead" data-t="sv_lead"></p>
+      <!-- ===== IMAGES 5-8: SERVICES =====
+           Put your photos at: images/service-1.jpg ... images/service-4.jpg  (1200x675, 16:9, under 250 KB each)
+           Order: 1 Real estate development, 2 Building construction, 3 Renovation, 4 Finishing.
+           The same photo is shown on the card and in the pop-up. Services 1 and 4 are shown wider (cropped to 21:9) -->
+      <div class="grid">
+        <article class="card"><div class="thumb" data-img="1" data-slot="images/service-1.jpg · 1200×675"><img src="images/service-1.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Real estate"><rect width="400" height="225" fill="#e1f4f0"/><rect x="90" y="70" width="110" height="155" fill="#2a9d8f"/><rect x="90" y="70" width="110" height="155" fill="url(#win)"/><rect x="210" y="115" width="90" height="110" fill="#2a9d8f"/><rect x="210" y="115" width="90" height="110" fill="url(#win)"/><rect x="334" y="120" width="6" height="105" fill="#9cc7c0"/><rect x="300" y="100" width="74" height="44" rx="4" fill="#0b6b65"/><rect x="310" y="112" width="54" height="5" fill="#fff" opacity=".85"/><rect x="310" y="124" width="36" height="5" fill="#fff" opacity=".85"/></svg></div><h3 data-t="sv1"></h3><p data-t="sv1d"></p><button class="more" type="button" data-svc="1" data-t="more"></button></article>
+        <article class="card"><div class="thumb" data-img="2" data-slot="images/service-2.jpg · 1200×675"><img src="images/service-2.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Construction"><rect width="400" height="225" fill="#ebf8f5"/><rect x="70" y="105" width="160" height="120" fill="#2a9d8f"/><rect x="70" y="105" width="160" height="120" fill="url(#win)"/><rect x="268" y="25" width="10" height="200" fill="#f4a259"/><rect x="170" y="25" width="200" height="10" fill="#f4a259"/><rect x="342" y="35" width="24" height="22" fill="#9cc7c0"/><path d="M196 35v62" stroke="#2a9d8f" stroke-width="2"/><rect x="188" y="97" width="16" height="12" fill="#0b6b65"/></svg></div><h3 data-t="sv2"></h3><p data-t="sv2d"></p><button class="more" type="button" data-svc="2" data-t="more"></button></article>
+        <article class="card"><div class="thumb" data-img="3" data-slot="images/service-3.jpg · 1200×675"><img src="images/service-3.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Renovation"><rect width="400" height="225" fill="#d6efe9"/><rect x="110" y="35" width="180" height="190" fill="#2a9d8f"/><rect x="110" y="35" width="180" height="190" fill="url(#win)"/><path d="M100 35v190M200 35v190M300 35v190M100 85h200M100 135h200M100 185h200" stroke="#f4a259" stroke-width="3" fill="none"/></svg></div><h3 data-t="sv3"></h3><p data-t="sv3d"></p><button class="more" type="button" data-svc="3" data-t="more"></button></article>
+        <article class="card"><div class="thumb" data-img="4" data-slot="images/service-4.jpg · 1200×675"><img src="images/service-4.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Finishing"><rect width="400" height="225" fill="#e6f6f2"/><rect y="170" width="400" height="55" fill="#b9e2d9"/><rect x="230" y="30" width="140" height="110" fill="#f4a259" opacity=".5"/><rect x="60" y="45" width="110" height="100" fill="#ffffff" opacity=".85"/><path d="M60 45h110v100H60zM115 45v100M60 95h110" stroke="#2a9d8f" stroke-width="6" fill="none"/><rect x="250" y="62" width="90" height="22" rx="3" fill="#0b6b65"/><path d="M340 73h22v36h-30" stroke="#2a9d8f" stroke-width="4" fill="none"/></svg></div><h3 data-t="sv4"></h3><p data-t="sv4d"></p><button class="more" type="button" data-svc="4" data-t="more"></button></article>
+      </div>
+    </div>
+  </section>
+
+    <section id="how" style="background:var(--paper);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <h2 data-t="n_how"></h2>
+      <ol class="steps" style="margin-top:32px">
+        <li><h3 data-t="st1"></h3><p data-t="st1d"></p></li>
+        <li><h3 data-t="st2"></h3><p data-t="st2d"></p></li>
+        <li><h3 data-t="st3"></h3><p data-t="st3d"></p></li>
+        <li><h3 data-t="st4"></h3><p data-t="st4d"></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2 data-t="pj_h"></h2>
+      <p class="lead" data-t="pj_lead"></p>
+      <!-- ===== IMAGES 9-11: PROJECTS =====
+           Put your photos at: images/project-1.jpg, images/project-2.jpg, images/project-3.jpg  (1200x900, 4:3, under 250 KB each)
+           Edit the names under each photo in the translations (keys p1, p2, p3 and p1c, p2c, p3c) -->
+      <div class="grid">
+        <figure class="photo" data-slot="images/project-1.jpg · 1200×900">
+          <img src="images/project-1.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration"><rect width="400" height="300" fill="#e1f4f0"/><rect x="120" y="50" width="160" height="250" fill="#2a9d8f"/><rect x="120" y="50" width="160" height="250" fill="url(#win)"/></svg>
+          <figcaption><span data-t="p1"></span><small data-t="p1c"></small></figcaption>
+        </figure>
+        <figure class="photo" data-slot="images/project-2.jpg · 1200×900">
+          <img src="images/project-2.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration"><rect width="400" height="300" fill="#ebf8f5"/><rect x="60" y="110" width="130" height="190" fill="#2a9d8f"/><rect x="210" y="30" width="120" height="270" fill="#2a9d8f"/><rect x="60" y="110" width="130" height="190" fill="url(#win)"/><rect x="210" y="30" width="120" height="270" fill="url(#win)"/></svg>
+          <figcaption><span data-t="p2"></span><small data-t="p2c"></small></figcaption>
+        </figure>
+        <figure class="photo" data-slot="images/project-3.jpg · 1200×900">
+          <img src="images/project-3.png" alt="" onerror="this.remove()"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration"><rect width="400" height="300" fill="#d6efe9"/><rect x="40" y="130" width="320" height="170" fill="#2a9d8f"/><rect x="40" y="130" width="320" height="170" fill="url(#win)"/><rect x="40" y="120" width="320" height="12" fill="#0b6b65"/></svg>
+          <figcaption><span data-t="p3"></span><small data-t="p3c"></small></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why" style="border-top:0">
+    <div class="wrap">
+      <h2 data-t="n_why"></h2>
+      <p class="lead" data-t="why_lead"></p>
+      <ul>
+        <li><h3 data-t="w1"></h3><p data-t="w1d"></p></li>
+        <li><h3 data-t="w2"></h3><p data-t="w2d"></p></li>
+        <li><h3 data-t="w3"></h3><p data-t="w3d"></p></li>
+        <li><h3 data-t="w4"></h3><p data-t="w4d"></p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap cols">
+      <div>
+        <h2 data-t="ct_h"></h2>
+        <p data-t="ct_p"></p>
+        <div class="info">
+          <div><strong data-t="ph"></strong> <a href="tel:+212000000000" dir="ltr">+212 000 000 000</a></div>
+          <div><strong>WhatsApp:</strong> <a data-wa target="_blank" rel="noopener" dir="ltr">+212 600 000 000</a></div>
+          <div><strong>Email:</strong> <a href="mailto:contact@example.ma" dir="ltr">contact@example.ma</a></div>
+          <div><strong data-t="ad"></strong> <span data-t="ad_v"></span></div>
+          <div><strong data-t="hr"></strong> <span data-t="hr_v"></span></div>
+        </div>
+      </div>
+      <!-- Connect to your backend or a form service by setting action and method -->
+      <form action="#" method="post">
+        <!-- Messages are sent by email through formsubmit.co to the address in MAIL_TO (see the script) -->
+        <input type="hidden" name="_subject" value="Nouvelle demande depuis le site web">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="row">
+          <label><span data-t="f_name"></span><input name="name" required autocomplete="name"></label>
+          <label><span data-t="f_phone"></span><input name="phone" type="tel" required autocomplete="tel" dir="ltr"></label>
+        </div>
+        <label>Email<input name="email" type="email" autocomplete="email" dir="ltr"></label>
+        <label><span data-t="f_type"></span>
+          <select name="type">
+            <option data-t="o1"></option><option data-t="o2"></option><option data-t="o3"></option><option data-t="o4"></option>
+          </select>
+        </label>
+        <label><span data-t="f_msg"></span><textarea name="message"></textarea></label>
+        <button class="btn" type="submit" data-t="f_send"></button>
+        <a class="btn wa-btn" data-wa target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm5.200 14.200c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.300 0 .5l-.3.400-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg><span data-t="wa_btn"></span></a>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> <span data-t="brand"></span>. <span data-t="rights"></span></span>
+    <span class="legal" data-t="legal" dir="auto"></span>
+    <!-- Replace the RC / IF / ICE numbers with your real company numbers -->
+  </div>
+</footer>
+
+<dialog id="svcModal" aria-labelledby="svcTitle">
+  <div class="head">
+    <h2 id="svcTitle"></h2>
+    <button class="close" type="button" data-close aria-label="Close">&times;</button>
+  </div>
+  <div class="thumb" id="svcImg"></div>
+  <p id="svcText"></p>
+  <ul id="svcList"></ul>
+  <a class="btn" href="#contact" data-close data-t="cta1"></a>
+</dialog>
+
+<a class="wa" data-wa target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm5.200 14.200c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.300 0 .5l-.3.400-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg><span class="sr" data-t="wa_btn"></span></a>
+
+<script>
+// Translations: each key = [Français, English, العربية]
+var D={
+title:["Construction d’immeubles au Maroc","Apartment building construction in Morocco","بناء العمارات في المغرب"],
+brand:["Votre Société","Your Company","اسم الشركة"],
+n_services:["Services","Services","خدماتنا"],
+n_projects:["Projets","Projects","مشاريعنا"],
+n_why:["Pourquoi nous","Why us","لماذا نحن"],
+n_contact:["Contact","Contact","اتصل بنا"],
+h1:["Construire l’extraordinaire.\nDe la vision à l’ouvrage.", "Building the extraordinary.\nFrom vision to structure.", "نبني ما هو استثنائي.\nمن الرؤية إلى الإنجاز."],
+hero_p:["Redéfinir l’horizon du Maroc avec une ingénierie de précision et une élégance architecturale.", "Redefining Morocco’s skyline with precision engineering and architectural elegance.", "نعيد رسم أفق المغرب بهندسة دقيقة وأناقة معمارية."],
+cta1:["Demander un devis","Request a quote","اطلب عرض سعر"],
+cta2:["Voir nos projets","View our projects","شاهد مشاريعنا"],
+sv_lead:["De l’étude du terrain à la remise des clés, une seule équipe pour tout votre projet.","From site study to handover, one team for your entire project.","من دراسة الأرض إلى تسليم المفاتيح، فريق واحد لمشروعك بالكامل."],
+sv1:["Promotion immobilière","Real estate development","التطوير العقاري"],
+sv1d:["Montage de projets résidentiels et commerciaux, de l’acquisition du foncier à la commercialisation.","Residential and commercial projects, from land acquisition to sales.","إنجاز مشاريع سكنية وتجارية، من اقتناء العقار إلى التسويق."],
+sv2:["Construction d’immeubles","Building construction","بناء العمارات"],
+sv2d:["Gros œuvre et second œuvre pour immeubles collectifs, résidences et tours.","Structural and finishing works for apartment blocks, residences and towers.","أشغال الهيكل والتشطيب للعمارات والإقامات والأبراج."],
+sv3:["Rénovation et réhabilitation","Renovation and rehabilitation","الترميم وإعادة التأهيل"],
+sv3d:["Remise à niveau des façades, structures et parties communes d’immeubles existants.","Upgrading facades, structures and common areas of existing buildings.","تجديد الواجهات والهياكل والأجزاء المشتركة للعمارات القائمة."],
+sv4:["Finitions et aménagement","Finishing and fit-out","التشطيب والتجهيز"],
+sv4d:["Carrelage, peinture, menuiserie, électricité et plomberie avec des matériaux de qualité.","Tiling, painting, joinery, electrical and plumbing with quality materials.","التبليط والصباغة والنجارة والكهرباء والسباكة بمواد عالية الجودة."],
+pj_lead:["Concepts et projets à l’étude. Ces visuels sont des illustrations, pas des réalisations.", "Concepts and projects under study. These visuals are illustrations, not completed works.", "تصورات ومشاريع قيد الدراسة. هذه الصور توضيحية وليست مشاريع منجزة."],
+p1:["Immeuble résidentiel", "Residential building", "عمارة سكنية"],
+p1c:["Concept · Illustration", "Concept · Illustration", "تصور · صورة توضيحية"],
+p2:["Ensemble mixte", "Mixed-use complex", "مجمع متعدد الاستعمال"],
+p2c:["Concept · Illustration", "Concept · Illustration", "تصور · صورة توضيحية"],
+p3:["Immeuble commercial", "Commercial building", "عمارة تجارية"],
+p3c:["Concept · Illustration", "Concept · Illustration", "تصور · صورة توضيحية"],
+why_lead:["Ce que nos clients retiennent de nos chantiers.","What our clients value about our sites.","ما يميز أوراشنا عند عملائنا."],
+w1:["Respect des délais","On-time delivery","احترام الآجال"],
+w1d:["Un planning clair et un suivi régulier jusqu’à la livraison.","A clear schedule and regular follow-up through handover.","جدول واضح ومتابعة منتظمة إلى غاية التسليم."],
+w2:["Matériaux conformes","Compliant materials","مواد مطابقة للمعايير"],
+w2d:["Matériaux certifiés et travaux conformes aux normes marocaines.","Certified materials and work that meets Moroccan standards.","مواد معتمدة وأشغال مطابقة للمعايير المغربية."],
+w3:["Encadrement technique", "Technical supervision", "إشراف تقني"],
+w3d:["Un encadrement technique pour chaque chantier.", "Technical supervision on every site.", "إشراف تقني على كل ورش."],
+w4:["Prix transparents","Transparent pricing","أسعار شفافة"],
+w4d:["Devis détaillé et validé avant le début des travaux.","A detailed quote approved before work begins.","عرض سعر مفصل يتم الاتفاق عليه قبل بدء الأشغال."],
+ct_h:["Parlons de votre projet","Let’s talk about your project","لنتحدث عن مشروعك"],
+ct_p:["Décrivez-nous votre projet et nous vous répondons rapidement.","Tell us about your project and we will reply quickly.","أخبرنا عن مشروعك وسنرد عليك في أقرب وقت."],
+ph:["Téléphone :","Phone:","الهاتف:"],
+ad:["Adresse :","Address:","العنوان:"],
+ad_v:["Votre rue, ville, Maroc","Your street, city, Morocco","شارعك، المدينة، المغرب"],
+hr:["Horaires :","Hours:","أوقات العمل:"],
+hr_v:["Lun à Ven, 9h à 18h","Mon to Fri, 9:00 to 18:00","الاثنين إلى الجمعة، 9:00 إلى 18:00"],
+f_name:["Nom complet","Full name","الاسم الكامل"],
+f_phone:["Téléphone","Phone","الهاتف"],
+f_type:["Type de projet","Project type","نوع المشروع"],
+o1:["Construction d’immeuble","Building construction","بناء عمارة"],
+o2:["Promotion immobilière","Real estate development","تطوير عقاري"],
+o3:["Rénovation","Renovation","ترميم"],
+o4:["Autre","Other","أخرى"],
+f_msg:["Votre message","Your message","رسالتك"],
+f_send:["Envoyer la demande","Send request","إرسال الطلب"],
+f_ok:["Merci, nous vous répondons très vite.","Thank you, we will reply shortly.","شكرا لك، سنتواصل معك قريبا."],
+more:["En savoir plus","Learn more","اعرف المزيد"],
+svd1:["Nous pilotons votre projet de bout en bout : choix du foncier, études, autorisations, financement, construction et commercialisation des logements ou locaux.","We run your project end to end: site selection, studies, permits, financing, construction and sales of the homes or units.","ندير مشروعك من البداية إلى النهاية: اختيار العقار والدراسات والتراخيص والتمويل والبناء وتسويق الشقق أو المحلات."],
+svl1:["Étude de faisabilité et choix du terrain|Montage administratif et autorisations|Suivi de la construction et du budget|Accompagnement à la vente et à la livraison","Feasibility study and site selection|Administrative setup and permits|Construction and budget follow-up|Support through sales and handover","دراسة الجدوى واختيار الأرض|الإجراءات الإدارية والتراخيص|متابعة الأشغال والميزانية|مواكبة البيع والتسليم"],
+svd2:["Réalisation complète d’immeubles collectifs, de résidences et de tours, du terrassement au second œuvre, selon les plans de l’architecte et les normes en vigueur.","Complete construction of apartment blocks, residences and towers, from excavation to finishing, following the architect’s plans and current standards.","إنجاز كامل للعمارات والإقامات والأبراج، من الحفر إلى التشطيب، وفق تصاميم المهندس المعماري والمعايير الجاري بها العمل."],
+svl2:["Terrassement et fondations|Structure en béton armé|Maçonnerie, étanchéité et façades|Réception et contrôle qualité","Excavation and foundations|Reinforced concrete structure|Masonry, waterproofing and facades|Inspection and quality control","الحفر والأساسات|الهيكل بالخرسانة المسلحة|البناء والعزل والواجهات|المعاينة ومراقبة الجودة"],
+svd3:["Nous redonnons vie aux immeubles existants : remise en état des façades, renforcement des structures et rénovation des parties communes.","We give new life to existing buildings: facade restoration, structural strengthening and renovation of common areas.","نمنح الحياة من جديد للعمارات القائمة: ترميم الواجهات وتقوية الهياكل وتجديد الأجزاء المشتركة."],
+svl3:["Diagnostic technique de l’immeuble|Ravalement et réfection des façades|Étanchéité et réparation des structures|Escaliers, ascenseurs et parties communes","Technical diagnosis of the building|Facade renovation and repainting|Waterproofing and structural repairs|Stairwells, lifts and common areas","تشخيص تقني للعمارة|ترميم الواجهات وإعادة صباغتها|العزل وإصلاح الهياكل|السلالم والمصاعد والأجزاء المشتركة"],
+svd4:["Des finitions soignées pour des logements prêts à vivre, avec des matériaux de qualité et des artisans qualifiés.","Careful finishing for move-in-ready homes, using quality materials and skilled craftsmen.","تشطيبات متقنة لشقق جاهزة للسكن، بمواد جيدة وحرفيين مؤهلين."],
+svl4:["Carrelage, marbre et revêtements|Peinture et plâtre décoratif|Menuiserie bois, aluminium et PVC|Électricité et plomberie","Tiling, marble and floor coverings|Painting and decorative plaster|Wood, aluminium and PVC joinery|Electrical and plumbing","التبليط والرخام والأرضيات|الصباغة والجبس الزخرفي|نجارة الخشب والألمنيوم والبلاستيك|الكهرباء والسباكة"],
+n_about:["À propos","About us","من نحن"],
+ab_t:["À propos de nous | Construction au Maroc","About us | Construction in Morocco","من نحن | البناء في المغرب"],
+ab_h1:["À propos de nous","About us","من نحن"],
+ab_intro:["Une entreprise marocaine de promotion et de construction d’immeubles, engagée à bâtir des espaces sûrs, durables et bien conçus.","A Moroccan real estate development and construction company committed to building safe, durable and well-designed spaces.","شركة مغربية للتطوير العقاري وبناء العمارات، ملتزمة ببناء فضاءات آمنة ودائمة ومصممة بإتقان."],
+ab_story_h:["Notre histoire","Our story","قصتنا"],
+ab_s1:["Nous sommes une jeune société de promotion et de construction d’immeubles. Notre priorité est de gagner votre confiance par la qualité du travail et la transparence.", "We are a young real estate development and construction company. Our priority is to earn your trust through quality work and transparency.", "نحن شركة فتية في التطوير العقاري وبناء العمارات. أولويتنا كسب ثقتكم بجودة العمل والشفافية."],
+ab_s2:["Notre équipe encadre chaque projet, de l’étude à la remise des clés, et reste joignable à chaque étape.", "Our team oversees every project, from study to handover, and stays reachable at every step.", "يشرف فريقنا على كل مشروع، من الدراسة إلى تسليم المفاتيح، ويبقى متاحا في كل مرحلة."],
+ab_m_h:["Notre mission","Our mission","مهمتنا"],
+ab_m:["Construire des logements et des locaux de qualité, livrés dans les délais et au prix convenu.","Build quality homes and premises, delivered on time and at the agreed price.","بناء مساكن ومحلات ذات جودة، تسلَّم في آجالها وبالثمن المتفق عليه."],
+ab_v_h:["Notre vision","Our vision","رؤيتنا"],
+ab_v:["Devenir une référence de la construction d’immeubles au Maroc par la qualité et la confiance.","Become a reference in apartment building construction in Morocco through quality and trust.","أن نصبح مرجعا في بناء العمارات بالمغرب بفضل الجودة والثقة."],
+ab_val_h:["Nos valeurs","Our values","قيمنا"],
+ab_val:["Intégrité, sécurité sur les chantiers, qualité du travail et respect de nos engagements.","Integrity, site safety, quality of work and keeping our commitments.","النزاهة، والسلامة في الأوراش، وجودة العمل، والوفاء بالتزاماتنا."],
+ab_team_h:["Notre équipe","Our team","فريقنا"],
+ab_team_lead:["Des professionnels expérimentés à votre service.","Experienced professionals at your service.","مهنيون ذوو خبرة في خدمتكم."],
+ab_name:["Nom Prénom","Full Name","الاسم الكامل"],
+ab_r1:["Directeur général","General Manager","المدير العام"],
+ab_r2:["Directeur technique","Technical Director","المدير التقني"],
+ab_r3:["Responsable des travaux","Works Manager","مسؤول الأشغال"],
+ab_cta:["Un projet en tête ?","Have a project in mind?","هل لديك مشروع؟"],
+wa_btn:["Écrire sur WhatsApp","Chat on WhatsApp","تواصل عبر واتساب"],
+wa_msg:["Bonjour, je souhaite un devis pour un projet de construction.","Hello, I would like a quote for a construction project.","السلام عليكم، أرغب في عرض سعر لمشروع بناء."],
+pj_h:["Projets à venir", "Upcoming projects", "مشاريع قادمة"],
+c1:["Devis gratuit", "Free quote", "عرض سعر مجاني"],
+c1d:["Sans engagement", "No obligation", "بدون أي التزام"],
+c2:["Réponse en 24 h", "Reply within 24 h", "رد خلال 24 ساعة"],
+c2d:["À chaque demande", "To every request", "على كل طلب"],
+c3:["Visite sur site", "Site visit", "زيارة ميدانية"],
+c3d:["Offerte avant le devis", "Free before the quote", "مجانية قبل تقديم العرض"],
+c4:["Suivi hebdomadaire", "Weekly follow-up", "متابعة أسبوعية"],
+c4d:["Compte rendu de chantier", "Site progress report", "تقرير عن تقدم الورش"],
+n_how:["Comment nous travaillons", "How we work", "كيف نعمل"],
+st1:["Étude et visite", "Study and site visit", "الدراسة والزيارة"],
+st1d:["Nous écoutons votre besoin et visitons le terrain.", "We listen to your needs and visit the site.", "نستمع إلى حاجتك ونعاين الأرض."],
+st2:["Devis détaillé", "Detailed quote", "عرض سعر مفصل"],
+st2d:["Un devis clair, validé avant le début des travaux.", "A clear quote, approved before work starts.", "عرض واضح يتم الاتفاق عليه قبل بدء الأشغال."],
+st3:["Exécution et suivi", "Execution and follow-up", "التنفيذ والمتابعة"],
+st3d:["Un suivi régulier avec compte rendu de chantier.", "Regular follow-up with site progress reports.", "متابعة منتظمة مع تقارير عن تقدم الورش."],
+st4:["Réception et livraison", "Inspection and handover", "المعاينة والتسليم"],
+st4d:["Contrôle final avant la remise des clés.", "Final check before handing over the keys.", "مراجعة نهائية قبل تسليم المفاتيح."],
+legal:["RC n° 000000 · IF n° 00000000 · ICE n° 000000000000000", "Trade Register No. 000000 · Tax ID No. 00000000 · ICE No. 000000000000000", "السجل التجاري رقم 000000 · المعرّف الضريبي رقم 00000000 · ICE رقم 000000000000000"],
+sl_prev:["Image précédente", "Previous image", "الصورة السابقة"],
+sl_next:["Image suivante", "Next image", "الصورة التالية"],
+m_theme:["Changer de thème", "Toggle theme", "تبديل المظهر"],
+m_menu:["Menu", "Menu", "القائمة"],
+theme:["Changer de thème", "Toggle theme", "تبديل المظهر"],
+f_wait:["Envoi en cours…", "Sending…", "جار الإرسال…"],
+f_err:["L’envoi a échoué. Réessayez ou écrivez-nous sur WhatsApp.", "Sending failed. Please try again or message us on WhatsApp.", "تعذر الإرسال. حاول مرة أخرى أو راسلنا عبر واتساب."],
+rights:["Tous droits réservés.","All rights reserved.","جميع الحقوق محفوظة."]
+};
+var L=["fr","en","ar"];
+function setLang(l){
+  var i=L.indexOf(l);if(i<0){l="fr";i=0;}
+  document.documentElement.lang=l;
+  document.documentElement.dir=l==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=D[e.dataset.t][i];});
+  document.title=D.title[i];
+  document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l);});
+  try{localStorage.setItem("lang",l);}catch(e){}
+  waLink();
+  if(dlg&&dlg.open)fillSvc();
+}
+document.querySelectorAll("[data-lang]").forEach(function(b){b.onclick=function(){setLang(b.dataset.lang);};});
+// ===== IMAGES: just drop files with these names in the images/ folder and they appear automatically =====
+// hero background: images/hero-bg.jpg | slider: slide-1..3.jpg | services: service-1..4.jpg | projects: project-1..3.jpg
+// Tip: open the page with ?slots at the end of the address (index.html?slots) to see a red label on every image spot
+var IMG={1:"",2:"",3:"",4:""}; // optional: force another path for a service, e.g. 1:"images/my-photo.jpg"
+function swap(el,src){var s=el&&el.querySelector("svg");if(!s)return;var im=new Image();im.alt="";im.src=src;s.replaceWith(im);}
+function probe(src,get){var t=new Image();t.onload=function(){swap(typeof get==="function"?get():get,src);};t.src=src;}
+document.querySelectorAll(".thumb[data-img]").forEach(function(t){probe(IMG[t.dataset.img]||"images/service-"+t.dataset.img+".jpg",t);});
+document.querySelectorAll("#projects .photo").forEach(function(f,i){probe("images/project-"+(i+1)+".jpg",f);});
+[1,2,3].forEach(function(n){probe("images/slide-"+n+".jpg",function(){return document.querySelectorAll(".slide")[n-1];});});
+if(/[?&]slots/.test(location.search))document.body.classList.add("slots");
+var cur="1",dlg=document.getElementById("svcModal");
+function fillSvc(){
+  var i=L.indexOf(document.documentElement.lang),ul=document.getElementById("svcList");
+  document.getElementById("svcTitle").textContent=D["sv"+cur][i];
+  document.getElementById("svcText").textContent=D["svd"+cur][i];
+  ul.innerHTML="";
+  D["svl"+cur][i].split("|").forEach(function(t){var li=document.createElement("li");li.textContent=t;ul.appendChild(li);});
+}
+document.querySelectorAll("[data-svc]").forEach(function(b){
+  b.addEventListener("click",function(){cur=b.dataset.svc;document.getElementById("svcImg").innerHTML=document.querySelector('.thumb[data-img="'+cur+'"]').innerHTML;fillSvc();dlg.showModal();});
+});
+dlg.addEventListener("click",function(e){if(e.target===dlg||e.target.closest("[data-close]"))dlg.close();});
+// Slider photos: add your own images, e.g. var SLIDES=["images/slide-1.jpg","images/slide-2.jpg","images/slide-3.jpg"];
+var SLIDES=[];
+(function(){
+  var box=document.getElementById("slider");
+  if(SLIDES.length){
+    var capKeys=["sv2","sv1","sv3"];
+    box.querySelectorAll(".slide").forEach(function(x){x.remove();});
+    SLIDES.forEach(function(src,i){
+      var d=document.createElement("div");d.className="slide";
+      d.innerHTML='<img src="'+src+'" alt="" loading="'+(i?"lazy":"eager")+'">'+(capKeys[i]?'<div class="cap" data-t="'+capKeys[i]+'"></div>':"");
+      box.insertBefore(d,box.querySelector(".nav"));
+    });
+  }
+  var sl=box.querySelectorAll(".slide"),dots=document.getElementById("dots"),cur=0,timer=null;
+  sl.forEach(function(_,i){
+    var b=document.createElement("button");b.type="button";b.setAttribute("aria-label",(i+1)+" / "+sl.length);
+    b.onclick=function(){go(i);};dots.appendChild(b);
+  });
+  function go(n){
+    cur=(n+sl.length)%sl.length;
+    sl.forEach(function(x,i){x.classList.toggle("on",i===cur);x.setAttribute("aria-hidden",i!==cur);});
+    dots.querySelectorAll("button").forEach(function(b,i){b.setAttribute("aria-current",i===cur);});
+  }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function play(){
+    if(window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+    stop();timer=setInterval(function(){go(cur+1);},5000);
+  }
+  box.querySelector(".prev").onclick=function(){go(cur-1);};
+  box.querySelector(".next").onclick=function(){go(cur+1);};
+  box.addEventListener("mouseenter",stop);box.addEventListener("mouseleave",play);
+  box.addEventListener("focusin",stop);box.addEventListener("focusout",play);
+  var x0=null;
+  box.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;stop();},{passive:true});
+  box.addEventListener("touchend",function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0,rtl=document.documentElement.dir==="rtl";
+    if(Math.abs(dx)>40)go(cur+((dx<0)!==rtl?1:-1));
+    x0=null;play();
+  });
+  go(0);play();
+})();
+// Mobile menu
+(function(){
+  var h=document.querySelector("header"),b=document.getElementById("burger");
+  b.onclick=function(){var o=h.classList.toggle("open");b.setAttribute("aria-expanded",o);};
+  document.querySelectorAll("nav a").forEach(function(a){a.addEventListener("click",function(){h.classList.remove("open");b.setAttribute("aria-expanded","false");});});
+})();
+// WhatsApp: number in international format, no + or spaces (212 = Morocco, then the number without the leading 0)
+var WA="212600000000";
+function waLink(){
+  var u="https://wa.me/"+WA+"?text="+encodeURIComponent(D.wa_msg[L.indexOf(document.documentElement.lang)]);
+  document.querySelectorAll("[data-wa]").forEach(function(a){a.href=u;});
+}
+// Advanced UI: theme toggle, scroll progress, reveal on scroll, card glow
+(function(){
+  var r=document.documentElement,t="light";
+  try{t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");}catch(e){}
+  r.setAttribute("data-theme",t);
+  document.getElementById("theme").onclick=function(){
+    var n=r.getAttribute("data-theme")==="dark"?"light":"dark";
+    r.setAttribute("data-theme",n);try{localStorage.setItem("theme",n);}catch(e){}
+  };
+  var pg=document.getElementById("progress"),hd=document.querySelector("header");
+  function sc(){var h=r.scrollHeight-innerHeight;pg.style.transform="scaleX("+(h>0?scrollY/h:0)+")";hd.classList.toggle("sc",scrollY>10);}
+  addEventListener("scroll",sc,{passive:true});sc();
+  var els=document.querySelectorAll(".card,.photo,.steps li,.why li,.stats .wrap>div,main h2,.lead,.split>*,.cols>*");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(e){
+      e.classList.add("rv");
+      e.style.transitionDelay=(Array.prototype.indexOf.call(e.parentNode.children,e)%4*80)+"ms";
+      io.observe(e);
+    });
+  }
+  document.querySelectorAll(".card").forEach(function(c){
+    c.addEventListener("pointermove",function(e){var b=c.getBoundingClientRect();c.style.setProperty("--mx",(e.clientX-b.left)+"px");c.style.setProperty("--my",(e.clientY-b.top)+"px");});
+  });
+})();
+var saved="fr";try{saved=localStorage.getItem("lang")||"fr";}catch(e){}
+setLang(saved);
+document.getElementById("yr").textContent=new Date().getFullYear();
+// Contact form: sends the message by email (formsubmit.co, no server needed)
+var MAIL_TO="testgm65@gmail.com";
+document.querySelector("form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=this,st=f.querySelector(".status"),btn=f.querySelector('button[type="submit"]'),
+      i=L.indexOf(document.documentElement.lang),fd=new FormData(f);
+  fd.append("langue",document.documentElement.lang);
+  btn.disabled=true;st.textContent=D.f_wait[i];
+  fetch("https://formsubmit.co/ajax/"+MAIL_TO,{method:"POST",headers:{"Accept":"application/json"},body:fd})
+    .then(function(r){return r.json();})
+    .then(function(d){if(d.success===true||d.success==="true"){st.textContent=D.f_ok[i];f.reset();}else{throw 0;}})
+    .catch(function(){st.textContent=D.f_err[i];})
+    .then(function(){btn.disabled=false;});
+});
+</script>
+</body>
+</html>
